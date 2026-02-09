@@ -53,16 +53,17 @@ return {
       })
 
       -- (optionnel) Keymaps LSP
-      --[[ vim.api.nvim_create_autocmd("LspAttach", {
+      vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local opts2 = { buffer = ev.buf, silent = true }
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts2)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts2)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts2)
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts2)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts2)
+          vim.keymap.set("n", "<leader>,i", vim.lsp.buf.definition, opts2) -- ",i"(qwerty) = "gd"(bépo)
+          vim.keymap.set("n", "<leader>,l", vim.lsp.buf.references, opts2) -- ",l"(qwerty) = "gr"(bépo)
+          vim.keymap.set("n", "<leader>B", vim.lsp.buf.hover, opts2) -- "B"(qwerty) = "K"(bépo)
+          vim.keymap.set("n", "<leader>l;", vim.lsp.buf.rename, opts2) -- "l;"(qwerty) = "rn"(bépo) 
+          vim.keymap.set("n", "<leader>ha", vim.lsp.buf.code_action, opts2) -- "ha"(qwerty) = "ca"(bépo)
+          vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, { buffer = ev.buf, silent = true, desc = "Diagnostic (popup)" }) -- "f"(qwerty) = "e"(bépo)
         end,
-      }) ]]
+      })
     end,
   },
 }
