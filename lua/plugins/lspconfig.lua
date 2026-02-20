@@ -22,6 +22,7 @@ return {
       ensure_installed = {
         "basedpyright", -- évite npm
         "ruff",
+        "phpactor",
       },
       automatic_enable = true,
     },
@@ -50,6 +51,11 @@ return {
       -- Ruff (lint + quickfix)
       vim.lsp.config("ruff", {
         capabilities = capabilities,
+      })
+
+      vim.lsp.config("phpactor", {
+        capabilities = capabilities,
+        filetypes = { "php" },
       })
 
       -- (optionnel) Keymaps LSP
