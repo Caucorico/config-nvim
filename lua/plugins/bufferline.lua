@@ -22,6 +22,12 @@ return {
             text_align = "left",
             separator = true, -- garde une séparation propre
           },
+          {
+            filetype = "dapui_scopes",
+            text = "Debugger",
+            text_align = "left",
+            separator = true,
+          },
         },
       },
     },

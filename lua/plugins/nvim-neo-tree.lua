@@ -30,6 +30,22 @@ return {
             },
           },
         },
+
+        open_files_do_not_replace_types = {
+          "terminal",
+          "qf",
+          "Trouble",
+
+          -- dap-ui
+          "dapui_scopes",
+          "dapui_breakpoints",
+          "dapui_stacks",
+          "dapui_watches",
+          "dapui_console",
+
+          -- dap repl (selon ton setup)
+          "dap-repl",
+        },
       })
     end,
   },
