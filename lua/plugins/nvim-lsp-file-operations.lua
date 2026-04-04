@@ -7,7 +7,7 @@ return {
     },
     config = function()
       require("lsp-file-operations").setup({
-        debug = true,
+        debug = false,
       })
     end,
   },
