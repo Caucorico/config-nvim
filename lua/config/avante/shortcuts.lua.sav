@@ -1,0 +1,61 @@
+local utils = require("config.avante.utils")
+
+return {
+  {
+    name = "opsx_apply",
+    description = "Implémenter un change OpenSpec",
+    prompt = utils.read_file("~/openspec/prompts/opsx-apply.prompt.md"),
+  },
+  {
+    name = "opsx_archive",
+    description = "Préparer l'archive OpenSpec",
+    prompt = utils.read_file("~/openspec/prompts/opsx-archive.prompt.md"),
+  },
+  {
+    name = "opsx_continue",
+    description = "",
+    details = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-continue.prompt.md"),
+  },
+  {
+    name = "opsx_explore",
+    description = "Explore",
+    prompt = utils.read_file("~/openspec/prompts/opsx-explore.prompt.md")
+  },
+  {
+    name = "opsx_learn",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-learn.prompt.md")
+  },
+  {
+    name = "opsx_new",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-new.prompt.md")
+  },
+  {
+    name = "opsx_onboard",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-onboard.prompt.md")
+  },
+  {
+    name = "opsx_propose",
+    description = "Préparer une proposition OpenSpec",
+    details = "Charge le prompt depuis un fichier Markdown.",
+    prompt = utils.read_file("~/openspec/prompts/opsx-propose.prompt.md"),
+  },
+  {
+    name = "opsx_reflect",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-onboard.prompt.md")
+  },
+  {
+    name = "opsx_sync",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-sync.prompt.md")
+  },
+  {
+    name = "opsx_verify",
+    description = "",
+    prompt = utils.read_file("~/openspec/prompts/opsx-verify.prompt.md")
+  },
+}
