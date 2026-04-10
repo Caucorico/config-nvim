@@ -194,3 +194,57 @@ nvm use node
 hash -r
 ```
 
+___
+
+# Install the runtime dependencies required by the Strudel plugin
+
+`strudel.nvim` uses **Puppeteer** to launch a bundled Chromium instance.
+Inside the Distrobox, Chromium needs additional system libraries to start correctly,
+and audio support must be present for sound output to work.
+
+Install the required packages:
+
+```bash
+sudo dnf install -y \
+  dbus-libs \
+  nss \
+  nspr \
+  atk \
+  at-spi2-atk \
+  cups-libs \
+  mesa-libgbm \
+  alsa-lib \
+  pango \
+  cairo \
+  libX11 \
+  libXcomposite \
+  libXdamage \
+  libXext \
+  libXfixes \
+  libXrandr \
+  libXScrnSaver \
+  libXtst \
+  libxkbcommon \
+  pulseaudio-libs \
+  alsa-plugins-pulseaudio
+```
+
+These dependencies were needed to fix issues such as:
+
+- missing shared libraries when Chromium starts (`libnss3.so`, `libdbus-1.so.3`, etc.)
+- no audio output from Strudel even though the browser launches correctly
+
+Optional but useful for audio debugging inside the box:
+
+```bash
+sudo dnf install -y pulseaudio-utils alsa-utils
+```
+
+Useful test commands:
+
+```bash
+pactl info
+paplay /usr/share/sounds/alsa/Front_Center.wav
+```
+
+If `paplay` works, the Distrobox can already reach the host audio server correctly.
