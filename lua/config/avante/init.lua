@@ -2,7 +2,8 @@ local M = {}
 
 function M.opts()
   return {
-    provider = "copilot",
+    -- provider = "copilot",
+    provider = "codex",
     mode = "agentic",
     instructions_file = "avante.md",
     behaviour = {
@@ -13,6 +14,15 @@ function M.opts()
     web_search_engine = {
       provider = "searxng",
       proxy = nil,
+    },
+    acp_providers = {
+      ["codex"] = {
+        command = "codex-acp",
+        args = {},
+        env = {
+          NODE_NO_WARNINGS = "1",
+        },
+      },
     },
     shortcuts = require("config.avante.shortcuts"),
     custom_tools = require("config.avante.tools"),

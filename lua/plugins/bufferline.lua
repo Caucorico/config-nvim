@@ -46,6 +46,23 @@ return {
         require("mini.bufremove").delete(0, false)
       end, { desc = "Supprimer buffer" })
 
+      -- Fermer les autres buffers
+      -- "qr"(qwerty) = "bo"(bépo)
+      vim.keymap.set("n", "<leader>qr", "<cmd>BufferLineCloseOthers<cr>", {
+        desc = "Supprimer les autres buffers",
+      })
+
+      -- Fermer les buffers à droite
+      -- "ql"(qwerty) = "br"(bépo)
+      vim.keymap.set("n", "<leader>ql", "<cmd>BufferLineCloseRight<cr>", {
+        desc = "Supprimer buffers à droite",
+      })
+
+      -- Fermer les buffers à gauche
+      -- "qo"(qwerty) = "bl"(bépo)
+      vim.keymap.set("n", "<leader>qo", "<cmd>BufferLineCloseLeft<cr>", {
+        desc = "Supprimer buffers à gauche",
+      })
     end,
   },
 }

@@ -5,6 +5,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local cmp = require("cmp")
@@ -13,14 +14,20 @@ return {
         completion = {
           completeopt = "menu,menuone,noselect",
         },
+        window = {
+          completion = {
+            max_height = 10,
+          },
+        },
         mapping = cmp.mapping.preset.insert({
           ["<C-;>"] = cmp.mapping.select_next_item(), -- ;(qwerty) = n(bépo)
-          ["<C-e>"] = cmp.mapping.select_prev_item(), --e(qwerty) = p(bépo)
+          ["<C-e>"] = cmp.mapping.select_prev_item(), -- e(qwerty) = p(bépo)
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(), -- f(qwerty) = e(bépo)
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-a>"] = cmp.mapping.abort(), -- a identique en qwerty/bépo
+          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          { name = "nvim_lsp" },
           { name = "path" },
           { name = "buffer" },
         }),
