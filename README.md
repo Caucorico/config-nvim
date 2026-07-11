@@ -176,9 +176,8 @@ Since the box points to this repository through a symbolic link, the configurati
 Inside the Distrobox:
 ```bash
 cd ~/src/neovim
-git fetch
-git checkout stable
-git pull
+git fetch origin --prune --tags --force
+git switch --detach stable
 make distclean
 make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX="$HOME/.local"
 make install
